@@ -16,7 +16,7 @@ resource "google_cloud_run_v2_service" "default" {
       resources {
         limits = {
           cpu    = "1"
-          memory = "512Mi"
+          memory = "256Mi"
         }
       }
     }
