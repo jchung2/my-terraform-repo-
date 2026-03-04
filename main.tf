@@ -33,9 +33,9 @@ resource "google_cloud_run_v2_service" "default" {
 resource "google_cloud_run_v2_service_iam_member" "public_access" {
   count = var.allow_unauthenticated ? 1 : 0
 
-  project  = "direct-byte-271706"
-  location = "us-central1"
-  name     = "mycloudrun2"
+  project  = var.project_id
+  location = var.region
+  name     = google_cloud_run_v2_service.default.name
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
